@@ -4,7 +4,7 @@ from database import init_db, get_user_by_username
 from points import calculate_referral_points
 import sqlite3
 
-app = Flask(__name__)
+app = Flask(__name__)  # Tässä määritellään app-objekti
 app.secret_key = 'supersecretkey'
 
 # Alusta tietokanta käynnistyksessä
@@ -42,13 +42,10 @@ def profile(username):
         # Laske referral-määrä (kutsutut käyttäjät)
         conn = sqlite3.connect('users.db')
         c = conn.cursor()
-        # Tier 1: Suoraan kutsutut käyttäjät
         c.execute('SELECT COUNT(*) FROM users WHERE referrer_id = (SELECT id FROM users WHERE username = ?)', (username,))
         tier1_count = c.fetchone()[0]
-        # Tier 2: Kutsuttujen kutsumat
         c.execute('SELECT COUNT(*) FROM users WHERE referrer_id IN (SELECT id FROM users WHERE referrer_id = (SELECT id FROM users WHERE username = ?))', (username,))
         tier2_count = c.fetchone()[0]
-        # Tier 3: Kutsuttujen kutsumien kutsumat
         c.execute('SELECT COUNT(*) FROM users WHERE referrer_id IN (SELECT id FROM users WHERE referrer_id IN (SELECT id FROM users WHERE referrer_id = (SELECT id FROM users WHERE username = ?)))', (username,))
         tier3_count = c.fetchone()[0]
         referral_count = tier1_count + tier2_count + tier3_count
@@ -73,4 +70,4 @@ def logout():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
