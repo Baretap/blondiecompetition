@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Leaderboard - Blondie Token{% endblock %}
+{% block meta_description %}Check the Blondie Token Referral Competition leaderboard to see the top players and compete for $10,000 worth of tokens!{% endblock %}
+{% block og_title %}Leaderboard - Blondie Token Referral Competition{% endblock %}
+{% block og_description %}Check the Blondie Token Referral Competition leaderboard to see the top players and compete for $10,000 worth of tokens!{% endblock %}
+{% block twitter_title %}Leaderboard - Blondie Token Referral Competition{% endblock %}
+{% block twitter_description %}Check the Blondie Token Referral Competition leaderboard to see the top players and compete for $10,000 worth of tokens!{% endblock %}
+{% block content %}
+<div class="leaderboard">
+    <h1>Blondie Token Leaderboard</h1>
+    <!-- Palkintojärjestelmän ilmoitus -->
+    <div class="prize-announcement">
+        <p>🏆 Prize System: $10,000 worth of Blondie Tokens will be distributed among the Top 5 players! 🏆</p>
+    </div>
+    <!-- Leaderboard-lista -->
+    {% for user in users %}
+    <div class="user">
+        <span>{{ user[0] }}</span>
+        <span>{{ user[1] }} points</span>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

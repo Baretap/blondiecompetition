@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Dynaaminen otsikko -->
+    <title>{% block title %}Blondie Token{% endblock %}</title>
+    <!-- Meta-description -->
+    <meta name="description" content="{% block meta_description %}Join the Blondie Token Referral Competition to earn points and win $10,000 worth of tokens! Invite friends and climb the leaderboard.{% endblock %}">
+    <!-- Meta-keywords (valinnainen, ei juuri vaikutusta nykyään) -->
+    <meta name="keywords" content="Blondie Token, referral competition, earn points, win tokens, leaderboard, crypto">
+    <!-- Open Graph (OG) -tagit sosiaaliseen mediaan -->
+    <meta property="og:title" content="{% block og_title %}Blondie Token Referral Competition{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Join the Blondie Token Referral Competition to earn points and win $10,000 worth of tokens!{% endblock %}">
+    <meta property="og:image" content="{{ url_for('static', filename='img/blondie.png') }}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card -tagit -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Blondie Token Referral Competition{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Join the Blondie Token Referral Competition to earn points and win $10,000 worth of tokens!{% endblock %}">
+    <meta name="twitter:image" content="{{ url_for('static', filename='img/blondie.png') }}">
+    <!-- Linkki CSS-tiedostoon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <!-- Navigointivalikko -->
+    {% if session.username %}
+    <nav class="navbar">
+        <div class="nav-brand">Blondie Token</div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('leaderboard') }}">Leaderboard</a></li>
+            <li><a href="{{ url_for('profile', username=session.username) }}">Profiili</a></li>
+            <li><a href="{{ url_for('logout') }}">Kirjaudu Ulos</a></li>
+        </ul>
+    </nav>
+    {% endif %}
+
+    <!-- Header-taustakuva -->
+    <div class="header-image">
+        <img src="{{ url_for('static', filename='img/header.png') }}" alt="Header Image">
+    </div>
+
+    <!-- Sisältöalue -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2023 Blondie Token. All rights reserved.</p>
+        <a href="https://dial.to/?action=solana-action:https://action.solscan.io/api/donate?receiver=3myV97qw61TAG4yeSfFRhmXrvW6J2pMci7VJV9VWSVUM" class="donate-btn">Donate</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

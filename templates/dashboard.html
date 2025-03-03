@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Blondie Token{% endblock %}
+{% block meta_description %}Explore the Blondie Token Referral Competition dashboard to track your progress and earn more points!{% endblock %}
+{% block og_title %}Dashboard - Blondie Token Referral Competition{% endblock %}
+{% block og_description %}Explore the Blondie Token Referral Competition dashboard to track your progress and earn more points!{% endblock %}
+{% block twitter_title %}Dashboard - Blondie Token Referral Competition{% endblock %}
+{% block twitter_description %}Explore the Blondie Token Referral Competition dashboard to track your progress and earn more points!{% endblock %}
+{% block content %}
+<div class="dashboard">
+    <div class="dashboard-card">
+        <div class="dashboard-icons">
+            <span>🏆</span>
+            <span>⭐</span>
+            <span>🏆</span>
+        </div>
+        <h1>Welcome to Blondie Token Referral Competition!</h1>
+        <p>Join the competition to earn points and win $10,000 worth of Blondie Tokens by inviting friends and climbing the leaderboard.</p>
+        <div class="dashboard-buttons">
+            <a href="https://x.com/blondietoken" class="dashboard-btn">Learn More</a>
+            <a href="{{ url_for('leaderboard') }}" class="dashboard-btn">Go to Leaderboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
