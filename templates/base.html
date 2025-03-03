@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <title>{% block title %}Blondie Token{% endblock %}</title>
     <!-- Meta-description -->
     <meta name="description" content="{% block meta_description %}Join the Blondie Token Referral Competition to earn points and win $10,000 worth of tokens! Invite friends and climb the leaderboard.{% endblock %}">
-    <!-- Meta-keywords (valinnainen, ei juuri vaikutusta nykyään) -->
+    <!-- Meta-keywords -->
     <meta name="keywords" content="Blondie Token, referral competition, earn points, win tokens, leaderboard, crypto">
     <!-- Open Graph (OG) -tagit sosiaaliseen mediaan -->
     <meta property="og:title" content="{% block og_title %}Blondie Token Referral Competition{% endblock %}">
@@ -36,8 +36,8 @@
         <ul class="nav-menu">
             <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
             <li><a href="{{ url_for('leaderboard') }}">Leaderboard</a></li>
-            <li><a href="{{ url_for('profile', username=session.username) }}">Profiili</a></li>
-            <li><a href="{{ url_for('logout') }}">Kirjaudu Ulos</a></li>
+            <li><a href="{{ url_for('profile', username=session.username) }}">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
         </ul>
     </nav>
     {% endif %}

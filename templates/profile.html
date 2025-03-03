@@ -1,14 +1,14 @@
 {% extends "base.html" %}
-{% block title %}Profiili - {{ user[0] }} - Blondie Token{% endblock %}
+{% block title %}Profile - {{ user[0] }} - Blondie Token{% endblock %}
 {% block meta_description %}View {{ user[0] }}'s profile in the Blondie Token Referral Competition. Check points, referrals, and share your referral link!{% endblock %}
-{% block og_title %}Profiili - {{ user[0] }} - Blondie Token Referral Competition{% endblock %}
+{% block og_title %}Profile - {{ user[0] }} - Blondie Token Referral Competition{% endblock %}
 {% block og_description %}View {{ user[0] }}'s profile in the Blondie Token Referral Competition. Check points, referrals, and share your referral link!{% endblock %}
-{% block twitter_title %}Profiili - {{ user[0] }} - Blondie Token Referral Competition{% endblock %}
+{% block twitter_title %}Profile - {{ user[0] }} - Blondie Token Referral Competition{% endblock %}
 {% block twitter_description %}View {{ user[0] }}'s profile in the Blondie Token Referral Competition. Check points, referrals, and share your referral link!{% endblock %}
 {% block content %}
 <div class="profile">
     <div class="profile-card">
-        <img src="data:image/jpeg;base64,{{ user[2] }}" alt="Profiilikuva" class="profile-pic">
+        <img src="data:image/jpeg;base64,{{ user[2] }}" alt="Profile Picture" class="profile-pic">
         <h1>{{ user[0] }}'s Profile</h1>
         <p class="profile-info"><strong>Points:</strong> {{ user[3] }}</p>
         <p class="profile-info"><strong>Referrals:</strong> {{ referral_count }}</p>
