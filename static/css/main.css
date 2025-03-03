@@ -1,264 +1,310 @@
 /* Väripaletti */
 :root {
- --dark-purple: #4B0082; /* Tummanliila */
- --pink: #FF69B4; /* Vaaleanpunainen */
- --black: #000000; /* Musta */
- --white: #FFFFFF; /* Valkoinen */
+    --dark-purple: #4B0082; /* Tummanliila */
+    --pink: #FF69B4; /* Vaaleanpunainen */
+    --black: #000000; /* Musta */
+    --white: #FFFFFF; /* Valkoinen */
 }
 
-body {
- margin: 0;
- padding: 0;
- font-family: 'Arial', sans-serif;
- min-height: 100vh;
- display: flex;
- flex-direction: column;
- color: var(--white);
- background-color: var(--dark-purple);
+/* Estä vaakasuuntainen ylivuoto koko sivulla */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    background-color: var(--dark-purple);
+    overflow-x: hidden; /* Estää vaakasuuntaisen ylivuodon */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Navigointivalikko */
 .navbar {
- background: var(--black);
- padding: 15px 20px;
- position: sticky;
- top: 0;
- left: 0;
- right: 0;
- z-index: 1000;
- display: flex;
- justify-content: space-between;
- align-items: center;
- box-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+    background: var(--black);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-brand {
- font-size: 1.8em;
- font-weight: bold;
- color: var(--pink);
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--pink);
 }
 
 .nav-menu {
- list-style: none;
- margin: 0;
- padding: 0;
- display: flex;
- gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
 }
 
 .nav-menu li a {
- color: var(--white);
- text-decoration: none;
- font-size: 1.1em;
- padding: 8px 15px;
- border-radius: 5px;
- transition: background 0.3s, color 0.3s;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
 }
 
 .nav-menu li a:hover {
- background: var(--pink);
- color: var(--black);
+    background: var(--pink);
+    color: var(--black);
 }
 
 /* Hampurilaisvalikko (mobiilissa) */
 .hamburger {
- display: none;
- flex-direction: column;
- gap: 5px;
- cursor: pointer;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
 }
 
 .hamburger span {
- width: 25px;
- height: 3px;
- background: var(--white);
- border-radius: 3px;
- transition: all 0.3s;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .nav-menu.active {
- display: flex;
- flex-direction: column;
- position: absolute;
- top: 100%;
- left: 0;
- right: 0;
- background: var(--black);
- padding: 20px;
- gap: 10px;
- box-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    padding: 20px;
+    gap: 10px;
+    box-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Header-taustakuva */
 .header-image {
- width: 100%;
- max-width: 800px;
- margin: 20px auto;
- text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 10px; /* Lisää padding estääksesi ylivuodon */
 }
 
 .header-image img {
- width: 100%;
- height: auto;
- object-fit: contain;
- object-position: center top;
- border: 2px solid var(--pink);
- border-radius: 5px;
- box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center top;
+    border: 2px solid var(--pink);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    max-width: 100%; /* Varmista, että kuva ei ylitä näytön leveyttä */
 }
 
 /* Sisältöalue */
 .container {
- flex: 1;
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- padding: 40px 20px;
- width: 100%;
- max-width: 1200px;
- margin: 0 auto;
- box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 /* Aloitussivu */
 .welcome-section {
- text-align: center;
- padding: 20px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .welcome-section h1 {
- font-size: 2.5em;
- margin-bottom: 20px;
- color: var(--pink);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--pink);
 }
 
 .welcome-section p {
- font-size: 1.2em;
- margin-bottom: 20px;
- color: var(--white);
- line-height: 1.5;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: var(--white);
+    line-height: 1.5;
 }
 
 .continue-btn {
- padding: 15px 40px;
- background: var(--pink);
- border: none;
- border-radius: 5px;
- color: var(--black);
- font-size: 1.5em;
- cursor: pointer;
- transition: background 0.3s, transform 0.3s;
+    padding: 15px 40px;
+    background: var(--pink);
+    border: none;
+    border-radius: 5px;
+    color: var(--black);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .continue-btn:hover {
- background: var(--white);
- transform: scale(1.05);
+    background: var(--white);
+    transform: scale(1.05);
 }
 
 /* Kirjautumissivu ja rekisteröitymissivu */
 .form-container {
- background: var(--black);
- padding: 40px;
- border-radius: 10px;
- max-width: 400px;
- width: 90%;
- margin: 20px auto;
- text-align: center;
- box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    background: var(--black);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    box-sizing: border-box;
 }
 
 .form-container input {
- display: block;
- width: 100%;
- padding: 10px;
- margin: 10px 0;
- border-radius: 5px;
- border: 1px solid var(--pink);
- background: var(--white);
- color: var(--black);
- font-size: 1.1em;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid var(--pink);
+    background: var(--white);
+    color: var(--black);
+    font-size: 1.1em;
+    box-sizing: border-box;
 }
 
 .form-container input::placeholder {
- color: var(--dark-purple);
+    color: var(--dark-purple);
 }
 
 .form-container button {
- padding: 15px 30px;
- background: var(--pink);
- border: none;
- border-radius: 5px;
- color: var(--black);
- font-size: 1.2em;
- cursor: pointer;
- transition: background 0.3s, transform 0.3s;
+    padding: 15px 30px;
+    background: var(--pink);
+    border: none;
+    border-radius: 5px;
+    color: var(--black);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .form-container button:hover {
- background: var(--white);
- transform: scale(1.05);
+    background: var(--white);
+    transform: scale(1.05);
 }
 
 .form-container a {
- color: var(--pink);
- text-decoration: none;
- font-size: 1.1em;
+    color: var(--pink);
+    text-decoration: none;
+    font-size: 1.1em;
 }
 
 .form-container a:hover {
- text-decoration: underline;
+    text-decoration: underline;
 }
 
 .error {
- background: rgba(255, 0, 0, 0.5);
- padding: 10px;
- border-radius: 5px;
- margin-bottom: 20px;
- color: var(--white);
- font-size: 1.1em;
+    background: rgba(255, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: var(--white);
+    font-size: 1.1em;
 }
 
 /* Dashboard-sivu */
 .dashboard {
- padding: 20px;
- text-align: center;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .dashboard-card {
- background: var(--black);
- padding: 30px;
- border-radius: 10px;
- max-width: 800px;
- margin: 0 auto;
- box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
- border: 1px solid var(--pink);
+    background: var(--black);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    border: 1px solid var(--pink);
+    box-sizing: border-box;
 }
 
 .dashboard-icons {
- display: flex;
- justify-content: center;
- gap: 15px;
- margin-bottom: 20px;
- font-size: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 2em;
 }
 
 .dashboard h1 {
- font-size: 2em;
- margin-bottom: 15px;
- color: var(--pink);
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: var(--pink);
 }
 
 .dashboard p {
- font-size: 1.2em;
- margin-bottom: 20px;
- color: var(--white);
- line-height: 1.5;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: var(--white);
+    line-height: 1.5;
 }
+
+.dashboard-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Varmista, että napit kääriytyvät pienillä näytöillä */
+}
+
+.dashboard-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--pink);
+    color: var(--black);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.3s;
+    box-sizing: border-box;
+}
+
+.dashboard-btn:hover {
+    background: var(--white);
+    transform: scale(1.05);
+}
+
 /* Profiilisivu */
 .profile {
     padding: 20px;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .profile-card {
@@ -266,9 +312,11 @@ body {
     padding: 30px;
     border-radius: 10px;
     max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
     border: 1px solid var(--pink);
+    box-sizing: border-box;
 }
 
 .profile-pic {
@@ -298,6 +346,8 @@ body {
 
 .referral-link-section {
     margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .referral-link-section p {
@@ -315,6 +365,9 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap; /* Varmista, että linkki ja nappi kääriytyvät pienillä näytöillä */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .referral-link {
@@ -326,6 +379,8 @@ body {
     word-break: break-all;
     cursor: pointer;
     transition: background 0.3s;
+    max-width: 100%; /* Estää linkin ylivuodon */
+    box-sizing: border-box;
 }
 
 .referral-link:hover {
@@ -349,16 +404,191 @@ body {
     transform: scale(1.05);
 }
 
-/* Responsiiviset tyylit profiilisivulle */
+/* Leaderboard-sivu */
+.leaderboard {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.leaderboard h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--pink);
+}
+
+/* Palkintojärjestelmän ilmoitus */
+.prize-announcement {
+    background: var(--black);
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    box-sizing: border-box;
+}
+
+.prize-announcement p {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--white);
+}
+
+/* Leaderboard-lista */
+.user {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 10px auto;
+    background: var(--black);
+    border-radius: 5px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+    font-size: 1.1em;
+    color: var(--white);
+    box-sizing: border-box;
+}
+
+/* Footer */
+.footer {
+    background: var(--black);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(255, 105, 180, 0.3);
+    box-sizing: border-box;
+}
+
+.footer p {
+    margin: 0 0 10px;
+    font-size: 1em;
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.donate-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--pink);
+    color: var(--black);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.donate-btn:hover {
+    background: var(--white);
+    transform: scale(1.05);
+}
+
+/* Responsiiviset tyylit */
 @media (max-width: 768px) {
-    .profile-card {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .nav-brand {
+        font-size: 1.2em;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li a {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .header-image {
+        margin: 10px auto;
+        padding: 0 10px;
+    }
+
+    .header-image img {
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 20px 10px;
+    }
+
+    .welcome-section h1 {
+        font-size: 1.5em;
+    }
+
+    .welcome-section p {
+        font-size: 1em;
+    }
+
+    .continue-btn {
+        padding: 10px 30px;
+        font-size: 1.2em;
+    }
+
+    .form-container {
         padding: 20px;
-        max-width: 90%;
+        margin: 20px auto;
+        max-width: 350px;
+    }
+
+    .form-container input {
+        font-size: 1em;
+    }
+
+    .form-container button {
+        font-size: 1em;
+    }
+
+    .dashboard-card {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .dashboard-icons {
+        font-size: 1.5em;
+        gap: 10px;
+    }
+
+    .dashboard h1 {
+        font-size: 1.5em;
+    }
+
+    .dashboard p {
+        font-size: 1em;
+    }
+
+    .dashboard-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .dashboard-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
     }
 
     .profile-pic {
         width: 80px;
         height: 80px;
+    }
+
+    .profile-card {
+        padding: 20px;
+        max-width: 100%;
     }
 
     .profile-card h1 {
@@ -382,12 +612,96 @@ body {
         font-size: 0.9em;
         padding: 6px 10px;
     }
+
+    .leaderboard h1 {
+        font-size: 1.5em;
+    }
+
+    .prize-announcement {
+        padding: 10px 20px;
+        max-width: 100%;
+        margin: 15px auto;
+    }
+
+    .prize-announcement p {
+        font-size: 1em;
+    }
+
+    .user {
+        padding: 10px;
+        font-size: 0.9em;
+        max-width: 100%;
+    }
+
+    .footer {
+        padding: 15px;
+    }
+
+    .footer p {
+        font-size: 0.8em;
+    }
+
+    .donate-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
 }
 
+/* Tablettinäkymä ja pienemmät tietokoneen näytöt */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .profile-card {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-brand {
+        font-size: 1.5em;
+    }
+
+    .nav-menu {
+        gap: 15px;
+    }
+
+    .nav-menu li a {
+        font-size: 1em;
+    }
+
+    .header-image {
+        margin: 10px auto;
+        padding: 0 15px;
+    }
+
+    .header-image img {
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 30px 15px;
+        max-width: 800px;
+    }
+
+    .welcome-section h1 {
+        font-size: 2em;
+    }
+
+    .form-container {
+        max-width: 450px;
+    }
+
+    .dashboard-card {
         padding: 25px;
-        max-width: 500px;
+        max-width: 100%;
+    }
+
+    .dashboard-icons {
+        font-size: 1.8em;
+    }
+
+    .dashboard h1 {
+        font-size: 1.8em;
+    }
+
+    .dashboard p {
+        font-size: 1.1em;
     }
 
     .profile-pic {
@@ -395,291 +709,75 @@ body {
         height: 100px;
     }
 
+    .profile-card {
+        padding: 25px;
+        max-width: 100%;
+    }
+
     .profile-card h1 {
         font-size: 1.8em;
     }
-}
-.dashboard-buttons {
- display: flex;
- justify-content: center;
- gap: 20px;
-}
 
-.dashboard-btn {
- display: inline-block;
- padding: 10px 20px;
- background: var(--pink);
- color: var(--black);
- text-decoration: none;
- border-radius: 5px;
- font-size: 1em;
- transition: background 0.3s, transform 0.3s;
+    .leaderboard h1 {
+        font-size: 1.8em;
+    }
+
+    .user {
+        max-width: 100%;
+    }
 }
 
-.dashboard-btn:hover {
- background: var(--white);
- transform: scale(1.05);
-}
+/* Suuret näytöt (tietokoneet) */
+@media (min-width: 1025px) {
+    .navbar {
+        padding: 15px 20px;
+    }
 
-/* Leaderboard-sivu */
-.leaderboard {
- padding: 20px;
- text-align: center;
-}
+    .nav-brand {
+        font-size: 1.8em;
+    }
 
-.leaderboard h1 {
- font-size: 2em;
- margin-bottom: 20px;
- color: var(--pink);
-}
+    .nav-menu {
+        gap: 20px;
+    }
 
-/* Palkintojärjestelmän ilmoitus */
-.prize-announcement {
- background: var(--black);
- padding: 15px 30px;
- border-radius: 10px;
- margin: 20px auto;
- max-width: 600px;
- box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-}
+    .nav-menu li a {
+        font-size: 1.1em;
+    }
 
-.prize-announcement p {
- margin: 0;
- font-size: 1.2em;
- font-weight: bold;
- color: var(--white);
-}
+    .header-image {
+        margin: 20px auto;
+        padding: 0 20px;
+    }
 
-/* Leaderboard-lista */
-.user {
- display: flex;
- justify-content: space-between;
- padding: 15px;
- margin: 10px auto;
- background: var(--black);
- border-radius: 5px;
- max-width: 600px;
- box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
- font-size: 1.1em;
- color: var(--white);
-}
+    .header-image img {
+        max-width: 100%;
+    }
 
-/* Footer */
-.footer {
- background: var(--black);
- padding: 20px;
- text-align: center;
- width: 100%;
- box-shadow: 0 -2px 10px rgba(255, 105, 180, 0.3);
-}
+    .container {
+        padding: 40px 20px;
+        max-width: 1200px;
+    }
 
-.footer p {
- margin: 0 0 10px;
- font-size: 1em;
- color: var(--white);
- opacity: 0.8;
-}
+    .welcome-section h1 {
+        font-size: 2.5em;
+    }
 
-.donate-btn {
- display: inline-block;
- padding: 10px 20px;
- background: var(--pink);
- color: var(--black);
- text-decoration: none;
- border-radius: 5px;
- font-size: 1em;
- transition: background 0.3s, transform 0.3s;
-}
+    .dashboard-card {
+        padding: 30px;
+        max-width: 800px;
+    }
 
-.donate-btn:hover {
- background: var(--white);
- transform: scale(1.05);
-}
+    .profile-card {
+        padding: 30px;
+        max-width: 600px;
+    }
 
-/* Responsiiviset tyylit */
-@media (max-width: 768px) {
- .navbar {
- padding: 10px 15px;
- }
+    .leaderboard h1 {
+        font-size: 2em;
+    }
 
- .nav-brand {
- font-size: 1.2em;
- }
-
- .hamburger {
- display: flex;
- }
-
- .nav-menu {
- display: none;
- }
-
- .nav-menu.active {
- display: flex;
- }
-
- .nav-menu li a {
- padding: 10px;
- font-size: 1em;
- }
-
- .header-image {
- margin: 10px auto;
- }
-
- .header-image img {
- max-width: 90%;
- }
-
- .container {
- padding: 20px 10px;
- }
-
- .welcome-section h1 {
- font-size: 1.5em;
- }
-
- .welcome-section p {
- font-size: 1em;
- }
-
- .continue-btn {
- padding: 10px 30px;
- font-size: 1.2em;
- }
-
- .form-container {
- padding: 20px;
- margin: 20px auto;
- max-width: 350px;
- }
-
- .form-container input {
- font-size: 1em;
- }
-
- .form-container button {
- font-size: 1em;
- }
-
- .dashboard-card {
- padding: 20px;
- max-width: 90%;
- }
-
- .dashboard-icons {
- font-size: 1.5em;
- gap: 10px;
- }
-
- .dashboard h1 {
- font-size: 1.5em;
- }
-
- .dashboard p {
- font-size: 1em;
- }
-
- .dashboard-buttons {
- flex-direction: column;
- gap: 10px;
- }
-
- .dashboard-btn {
- padding: 8px 15px;
- font-size: 0.9em;
- }
-
- .leaderboard h1 {
- font-size: 1.5em;
- }
-
- .prize-announcement {
- padding: 10px 20px;
- max-width: 90%;
- margin: 15px auto;
- }
-
- .prize-announcement p {
- font-size: 1em;
- }
-
- .user {
- padding: 10px;
- font-size: 0.9em;
- max-width: 90%;
- }
-
- .footer {
- padding: 15px;
- }
-
- .footer p {
- font-size: 0.8em;
- }
-
- .donate-btn {
- padding: 8px 15px;
- font-size: 0.9em;
- }
-}
-
-@media (min-width : 769px) and (max-width: 1024px) {
- .navbar {
- padding: 15px 20px;
- }
-
- .nav-brand {
- font-size: 1.5em;
- }
-
- .nav-menu {
- gap: 15px;
- }
-
- .nav-menu li a {
- font-size: 1em;
- }
-
- .header-image img {
- max-width: 600px;
- }
-
- .container {
- padding: 30px 15px;
- max-width: 800px;
- }
-
- .welcome-section h1 {
- font-size: 2em;
- }
-
- .form-container {
- max-width: 450px;
- }
-
- .dashboard-card {
- padding: 25px;
- max-width: 600px;
- }
-
- .dashboard-icons {
- font-size: 1.8em;
- }
-
- .dashboard h1 {
- font-size: 1.8em;
- }
-
- .dashboard p {
- font-size: 1.1em;
- }
-
- .leaderboard h1 {
- font-size: 1.8em;
- }
-
- .user {
- max-width: 500px;
- }
+    .user {
+        max-width: 600px;
+    }
 }
