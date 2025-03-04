@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google Search Console Verification Tag -->
     <meta name="google-site-verification" content="SDTeQClaWhm_wZ0oujhMT88TLYQzTfYaBHnW4EeKHlU" />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_TRACKING_ID');
+    </script>
     <title>Welcome - Blondie Token</title>
     <!-- Meta-description -->
     <meta name="description" content="Welcome to the Blondie Token Referral Competition! The competition is not yet live, but follow us on X to get the latest updates!">
@@ -30,6 +38,12 @@
     <div class="welcome-section">
         <h1>Welcome to the Blondie Token Referral Competition!</h1>
         <p>The competition is not yet live, but you can follow us on X to get the latest updates and information about its launch!</p>
+        <div id="countdown" style="font-size: 1.2em; margin: 20px 0; color: var(--pink);">
+            <span id="days"></span> Days 
+            <span id="hours"></span> Hours 
+            <span id="minutes"></span> Minutes 
+            <span id="seconds"></span> Seconds
+        </div>
         <a href="https://x.com/blondietoken" class="dashboard-btn">Follow us on X</a>
     </div>
 
@@ -37,5 +51,35 @@
     <footer class="footer">
         <p>© 2023 Blondie Token. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript laskurille -->
+    <script>
+        // Aseta kilpailun alkamispäivä (esimerkki: 1. huhtikuuta 2024)
+        const launchDate = new Date("Apr 1, 2024 00:00:00").getTime();
+
+        // Päivitä laskuri joka sekunti
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            // Laske päivät, tunnit, minuutit ja sekunnit
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Näytä laskuri
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            // Jos laskuri päättyy, näytä viesti
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerText = "The competition is now live!";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
