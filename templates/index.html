@@ -6,12 +6,12 @@
     <!-- Google Search Console Verification Tag -->
     <meta name="google-site-verification" content="SDTeQClaWhm_wZ0oujhMT88TLYQzTfYaBHnW4EeKHlU" />
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N86FRBRS5J"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_TRACKING_ID');
+      gtag('config', 'G-N86FRBRS5J');
     </script>
     <title>Welcome - Blondie Token</title>
     <!-- Meta-description -->
@@ -54,28 +54,28 @@
 
     <!-- JavaScript laskurille -->
     <script>
-        // Aseta kilpailun alkamispäivä (esimerkki: 1. huhtikuuta 2024)
-        const launchDate = new Date("Apr 1, 2024 00:00:00").getTime();
+        // Aseta kilpailun alkamispäivä (1. huhtikuuta 2025, UTC-aikavyöhyke)
+        const launchDate = new Date("2025-04-01T00:00:00Z").getTime();
 
         // Päivitä laskuri joka sekunti
         const countdownFunction = setInterval(function() {
             const now = new Date().getTime();
             const distance = launchDate - now;
 
-            // Laske päivät, tunnit, minuutit ja sekunnit
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Jos aika on vielä jäljellä, laske ja näytä jäljellä oleva aika
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Näytä laskuri
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-
-            // Jos laskuri päättyy, näytä viesti
-            if (distance < 0) {
+                // Näytä laskuri
+                document.getElementById("days").innerText = days;
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("minutes").innerText = minutes;
+                document.getElementById("seconds").innerText = seconds;
+            } else {
+                // Jos aika on kulunut umpeen, näytä viesti ja pysäytä laskuri
                 clearInterval(countdownFunction);
                 document.getElementById("countdown").innerText = "The competition is now live!";
             }
