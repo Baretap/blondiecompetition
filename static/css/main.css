@@ -16,7 +16,7 @@ html, body {
     flex-direction: column;
     color: var(--white);
     background-color: var(--dark-purple);
-    overflow-x: hidden; /* Estää vaakasuuntaisen ylivuodon */
+    overflow-x: hidden;
     width: 100%;
     box-sizing: border-box;
 }
@@ -104,7 +104,7 @@ html, body {
     margin: 20px auto;
     text-align: center;
     box-sizing: border-box;
-    padding: 0 10px; /* Lisää padding estääksesi ylivuodon */
+    padding: 0 10px;
 }
 
 .header-image img {
@@ -115,7 +115,7 @@ html, body {
     border: 2px solid var(--pink);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
-    max-width: 100%; /* Varmista, että kuva ei ylitä näytön leveyttä */
+    max-width: 100%;
 }
 
 /* Sisältöalue */
@@ -138,6 +138,13 @@ html, body {
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 800px; /* Rajoita leveyttä suurilla näytöillä */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Varmista, että sivu täyttää näytön korkeuden (vähennetään footerin korkeus) */
 }
 
 .welcome-section h1 {
@@ -279,7 +286,7 @@ html, body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* Varmista, että napit kääriytyvät pienillä näytöillä */
+    flex-wrap: wrap;
 }
 
 .dashboard-btn {
@@ -365,7 +372,7 @@ html, body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    flex-wrap: wrap; /* Varmista, että linkki ja nappi kääriytyvät pienillä näytöillä */
+    flex-wrap: wrap;
     width: 100%;
     box-sizing: border-box;
 }
@@ -379,7 +386,7 @@ html, body {
     word-break: break-all;
     cursor: pointer;
     transition: background 0.3s;
-    max-width: 100%; /* Estää linkin ylivuodon */
+    max-width: 100%;
     box-sizing: border-box;
 }
 
@@ -539,6 +546,11 @@ html, body {
         font-size: 1.2em;
     }
 
+    .dashboard-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
     .form-container {
         padding: 20px;
         margin: 20px auto;
@@ -574,11 +586,6 @@ html, body {
     .dashboard-buttons {
         flex-direction: column;
         gap: 10px;
-    }
-
-    .dashboard-btn {
-        padding: 8px 15px;
-        font-size: 0.9em;
     }
 
     .profile-pic {
