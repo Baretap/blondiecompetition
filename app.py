@@ -3,17 +3,42 @@ from auth import register_user, login_user
 from database import init_db, get_user_by_username
 from points import calculate_referral_points
 import sqlite3
+import os
 
-app = Flask(__name__)  # Tässä määritellään app-objekti
+app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
 # Alusta tietokanta käynnistyksessä
 init_db()
 
+# Funktio kävijämäärän tallentamiseen ja hakemiseen
+def update_visitor_count():
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    # Tarkista, onko visitor_count-taulu olemassa, jos ei, luo se
+    c.execute('''CREATE TABLE IF NOT EXISTS visitor_count (id INTEGER PRIMARY KEY, count INTEGER)''')
+    # Tarkista, onko laskurilla jo arvo
+    c.execute("SELECT count FROM visitor_count WHERE id = 1")
+    result = c.fetchone()
+    if result is None:
+        # Jos ei arvoa, alusta laskuri arvolla 0
+        c.execute("INSERT INTO visitor_count (id, count) VALUES (1, 0)")
+        count = 0
+    else:
+        count = result[0]
+    # Kasvata laskuria yhdellä
+    count += 1
+    c.execute("UPDATE visitor_count SET count = ? WHERE id = 1", (count,))
+    conn.commit()
+    conn.close()
+    return count
+
 # Aloitussivu
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Päivitä kävijämäärä ja hae nykyinen määrä
+    visitor_count = update_visitor_count()
+    return render_template('index.html', visitor_count=visitor_count)
 
 # Rekisteröityminen
 @app.route('/register', methods=['GET', 'POST'])

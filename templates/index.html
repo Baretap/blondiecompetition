@@ -49,7 +49,15 @@
             <span id="minutes"></span> Minutes 
             <span id="seconds"></span> Seconds
         </div>
-        <a href="https://x.com/blondietoken" class="dashboard-btn">Follow us on X</a>
+        {% if visitor_count %}
+        <p style="font-size: 1em; color: var(--white); margin: 10px 0;">
+            Visitors so far: <span style="color: var(--pink);">{{ visitor_count }}</span>
+        </p>
+        {% endif %}
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://x.com/blondietoken" class="dashboard-btn">Follow us on X</a>
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20the%20Blondie%20Token%20Referral%20Competition!%20Join%20and%20win%20$10,000%20in%20tokens!&url={{ request.url | urlencode }}&hashtags=BlondieToken,ReferralCompetition" class="dashboard-btn" target="_blank">Share on X</a>
+        </div>
     </div>
 
     <!-- Footer (ilman Donate-linkkiä) -->
